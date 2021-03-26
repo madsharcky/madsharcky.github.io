@@ -22,7 +22,7 @@ elif args.operatingSystem=="mac":
     savelocation = KodiFolder+r"\userdata"
     getlocation =  KodiFolder+r"\addons"+"\\"+addonid+r"\resources"
 elif args.operatingSystem=="android":
-    KodiFolder = r"Android\data\org.xbmc.kodi\files\.kodi"
+    KodiFolder = r"storage\emulated\0\Android\data\org.xbmc.kodi\files\.kodi"
     savelocation = KodiFolder+r"\userdata"
     getlocation =  KodiFolder+r"\addons"+"\\"+addonid+r"\resources"
 
