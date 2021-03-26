@@ -42,7 +42,7 @@
 	</extension>
 </addon>
 
-<addon id="script.connect.FTP" name="Connect FTP" version="1.0.0" provider-name="Mad">
+<addon id="script.connect.FTP" name="Connect FTP" version="1.1" provider-name="Mad">
 	<requires>
 		<import addon="xbmc.python" version="2.14.0"/>
 	</requires>
@@ -71,7 +71,7 @@
 </addon>
 
 <!-- BINGIE -->
-<addon id="skin.titan.bingie.mad" version="1.0.0" name="Titan BINGIE MAD" provider-name="Mad">
+<addon id="skin.titan.bingie.mad" version="1.1" name="Titan BINGIE MAD" provider-name="Mad">
 <requires>
 		<import version="5.14.0" addon="xbmc.gui"/>
 		<import addon="script.bingie.helper" version="1.0.0"/>

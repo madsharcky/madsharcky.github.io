@@ -66,7 +66,7 @@
 					<onleft>noop</onleft>
 					<onback>noop</onback>
 					<control type="button" id="101">
-						<width min="300">auto</width>
+						<width min="200">auto</width>
 						<height>55</height>
 						<font>Reg24</font>
 						<textcolor>white</textcolor>
@@ -80,15 +80,17 @@
 						<alttexturefocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframefo.png</alttexturefocus>
 						<alttexturenofocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframenf.png</alttexturenofocus>
 						<label>Windows</label>
+						<onclick>SetProperty(finishBingieStartup0,1,Home)</onclick>
 						<onclick>Skin.SetBool(BingieZeroStartupDone)</onclick>
-						<onclick>RunAddon(script.connect.FTP[operatingSystem.windows])</onclick>
+						<onclick>RunAddon(script.connect.FTP, --operatingSystem=windows)</onclick>
+						<onclick>AlarmClock(clear_property,ClearProperty(finishBingieStartup0,Home),00:02,silent)</onclick>
 						<onclick>AlarmClock(delay_window,ReplaceWindow($VAR[StartUpWindow]),00:01,silent)</onclick>
 						<onup>PageUp(3000)</onup>
 						<ondown>PageDown(3000)</ondown>
 					</control>
 
 					<control type="button" id="102">
-						<width min="300">auto</width>
+						<width min="200">auto</width>
 						<height>55</height>
 						<font>Reg24</font>
 						<textcolor>white</textcolor>
@@ -102,15 +104,17 @@
 						<alttexturefocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframefo.png</alttexturefocus>
 						<alttexturenofocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframenf.png</alttexturenofocus>
 						<label>Mad, ääh Mac</label>
+						<onclick>SetProperty(finishBingieStartup0,1,Home)</onclick>
 						<onclick>Skin.SetBool(BingieZeroStartupDone)</onclick>
-						<onclick>RunAddon(script.connect.FTP[operatingSystem.mac])</onclick>
+						<onclick>RunAddon(script.connect.FTP, --operatingSystem=mac)</onclick>
+						<onclick>AlarmClock(clear_property,ClearProperty(finishBingieStartup0,Home),00:02,silent)</onclick>
 						<onclick>AlarmClock(delay_window,ReplaceWindow($VAR[StartUpWindow]),00:01,silent)</onclick>
 						<onup>PageUp(3000)</onup>
 						<ondown>PageDown(3000)</ondown>
 					</control>
 
 					<control type="button" id="103">
-						<width min="300">auto</width>
+						<width min="200">auto</width>
 						<height>55</height>
 						<font>Reg24</font>
 						<textcolor>white</textcolor>
@@ -124,8 +128,10 @@
 						<alttexturefocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframefo.png</alttexturefocus>
 						<alttexturenofocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframenf.png</alttexturenofocus>
 						<label>Android</label>
+						<onclick>SetProperty(finishBingieStartup0,1,Home)</onclick>
 						<onclick>Skin.SetBool(BingieZeroStartupDone)</onclick>
-						<onclick>RunAddon(script.connect.FTP[operatingSystem.android])</onclick>
+						<onclick>RunAddon(script.connect.FTP, --operatingSystem=android)</onclick>
+						<onclick>AlarmClock(clear_property,ClearProperty(finishBingieStartup0,Home),00:02,silent)</onclick>
 						<onclick>AlarmClock(delay_window,ReplaceWindow($VAR[StartUpWindow]),00:01,silent)</onclick>
 						<onup>PageUp(3000)</onup>
 						<ondown>PageDown(3000)</ondown>
@@ -142,10 +148,10 @@
 						<texture colordiffuse="cc515151" border="2">colors/color_white.png</texture>
 					</control>
 					<control type="image">
-						<width>50%</width>
+						<width>1%</width>
 						<height>100%</height>
 						<texture colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]" border="4">colors/color_white.png</texture>
-						<animation effect="zoom" end="200,100" easing="in" tween="cubic" time="600" condition="!String.IsEmpty(Window(Home).Property(finishBingieStartup2))">Conditional</animation>
+						<animation effect="zoom" end="3300,100" easing="in" tween="cubic" time="600" condition="!String.IsEmpty(Window(Home).Property(finishBingieStartup0))">Conditional</animation>
 					</control>
 				</control>
 			</control>

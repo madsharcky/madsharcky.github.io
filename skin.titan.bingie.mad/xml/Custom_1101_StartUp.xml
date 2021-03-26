@@ -115,10 +115,10 @@
 						<texture colordiffuse="cc515151" border="2">colors/color_white.png</texture>
 					</control>
 					<control type="image">
-						<width>1%</width>
+						<width>33%</width>
 						<height>100%</height>
 						<texture colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]" border="4">colors/color_white.png</texture>
-						<animation effect="zoom" end="5000,100" easing="in" tween="cubic" time="600" condition="!String.IsEmpty(Window(Home).Property(finishBingieStartup1))">Conditional</animation>
+						<animation effect="zoom" end="6600,100" easing="in" tween="cubic" time="600" condition="!String.IsEmpty(Window(Home).Property(finishBingieStartup1))">Conditional</animation>
 					</control>
 				</control>
 			</control>

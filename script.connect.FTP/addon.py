@@ -7,9 +7,8 @@ import sqlite3
 
 #parse OS input
 parser = argparse.ArgumentParser()
-parser.add_argument("operatingSystem",help="give operating system")
+parser.add_argument("--operatingSystem",help="give operating system")
 args = parser.parse_args()
-print(args.operatingSystem)
 
 #make location folder
 addon = xbmcaddon.Addon()
