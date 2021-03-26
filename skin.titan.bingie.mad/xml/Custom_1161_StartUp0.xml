@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- BINGIE -->
-<window id="1101">
+<window id="1161">
 	<zorder>999</zorder>
 	<defaultcontrol>101</defaultcontrol>
 	<controls>
 		<control type="group">
 			<control type="image">
-				<include>Visible_Fade</include>
+				<animation effect="fade" end="100" time="200">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+				<animation effect="fade" end="100" time="200">Visible</animation>
+				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
 				<include>FullscreenDimensions</include>
 				<texture background="true" colordiffuse="$VAR[BingiePanelColor]">colors/color_white.png</texture>
 			</control>
@@ -39,17 +42,6 @@
 						<texture background="true">madflix_logo.png</texture>
 					</control>
 				</control>
-				<!-- headline -->
-				<control type="label">
-					<width>100%</width>
-					<height>26</height>
-					<font>Bold28</font>
-					<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-					<scroll>false</scroll>
-					<align>left</align>
-					<aligny>top</aligny>
-					<label>$LOCALIZE[31387]</label>
-				</control>
 				<!-- message -->
 				<control id="5" type="textbox">
 					<centerleft>50%</centerleft>
@@ -61,7 +53,7 @@
 					<textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
 					<aligny>top</aligny>
 					<pagecontrol>3000</pagecontrol>
-					<label>$LOCALIZE[31388]</label>
+					<label>Please Select your Operating System</label>
 				</control>
 				<!-- Button -->
 				<control type="grouplist" id="100">
@@ -87,24 +79,59 @@
 						<texturenofocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframenf.png</texturenofocus>
 						<alttexturefocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframefo.png</alttexturefocus>
 						<alttexturenofocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframenf.png</alttexturenofocus>
-						<label>$LOCALIZE[31389]</label>
-						<onclick>Skin.SetBool(BingieFirstStartupDone)</onclick>
-						<onclick>SetProperty(finishBingieStartup1,1,Home)</onclick>
-						<onclick condition="System.GetBool(filelists.showparentdiritems)">RunScript(script.skin.helper.service,action=togglekodisetting,setting=filelists.showparentdiritems)</onclick>
-						<onclick>RunScript(script.skin.helper.service,action=togglekodisetting,setting=services.webserver)</onclick>
-						<onclick>RunScript(script.skin.helper.service,action=togglekodisetting,setting=services.esallinterfaces)</onclick>
-						<onclick>RunScript(script.skin.helper.service,action=togglekodisetting,setting=services.zeroconf)</onclick>
-						<onclick>RunScript(script.skin.helper.service,action=togglekodisetting,setting=videolibrary.updateonstartup)</onclick>
-						<onclick>RunScript(script.skin.helper.service,action=setkodisetting,setting=services.webserverusername,value="madflix")</onclick>
-						<onclick>RunScript(script.skin.helper.service,action=setkodisetting,setting=videolibrary.tvshowsselectfirstunwatcheditem,value=2)</onclick>
-						<onclick>RunScript(script.skin.helper.service,action=setkodisetting,setting=videolibrary.flattentvshows,value=2)</onclick>
-						<onclick>RunScript(script.skin.helper.service,action=setkodisetting,setting=myvideos.selectaction,value=2)</onclick>
-						<onclick>AlarmClock(clear_property,ClearProperty(finishBingieStartup1,Home),00:02,silent)</onclick>
+						<label>Windows</label>
+						<onclick>Skin.SetBool(BingieZeroStartupDone)</onclick>
+						<onclick>RunAddon(script.connect.FTP[operatingSystem.windows])</onclick>
+						<onclick>AlarmClock(delay_window,ReplaceWindow($VAR[StartUpWindow]),00:01,silent)</onclick>
+						<onup>PageUp(3000)</onup>
+						<ondown>PageDown(3000)</ondown>
+					</control>
+
+					<control type="button" id="102">
+						<width min="300">auto</width>
+						<height>55</height>
+						<font>Reg24</font>
+						<textcolor>white</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<selectedcolor>white</selectedcolor>
+						<textoffsetx>20</textoffsetx>
+						<aligny>center</aligny>
+						<align>center</align>
+						<texturefocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframefo.png</texturefocus>
+						<texturenofocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframenf.png</texturenofocus>
+						<alttexturefocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframefo.png</alttexturefocus>
+						<alttexturenofocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframenf.png</alttexturenofocus>
+						<label>Mad, ääh Mac</label>
+						<onclick>Skin.SetBool(BingieZeroStartupDone)</onclick>
+						<onclick>RunAddon(script.connect.FTP[operatingSystem.mac])</onclick>
+						<onclick>AlarmClock(delay_window,ReplaceWindow($VAR[StartUpWindow]),00:01,silent)</onclick>
+						<onup>PageUp(3000)</onup>
+						<ondown>PageDown(3000)</ondown>
+					</control>
+
+					<control type="button" id="103">
+						<width min="300">auto</width>
+						<height>55</height>
+						<font>Reg24</font>
+						<textcolor>white</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<selectedcolor>white</selectedcolor>
+						<textoffsetx>20</textoffsetx>
+						<aligny>center</aligny>
+						<align>center</align>
+						<texturefocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframefo.png</texturefocus>
+						<texturenofocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframenf.png</texturenofocus>
+						<alttexturefocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframefo.png</alttexturefocus>
+						<alttexturenofocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframenf.png</alttexturenofocus>
+						<label>Android</label>
+						<onclick>Skin.SetBool(BingieZeroStartupDone)</onclick>
+						<onclick>RunAddon(script.connect.FTP[operatingSystem.android])</onclick>
 						<onclick>AlarmClock(delay_window,ReplaceWindow($VAR[StartUpWindow]),00:01,silent)</onclick>
 						<onup>PageUp(3000)</onup>
 						<ondown>PageDown(3000)</ondown>
 					</control>
 				</control>
+
 				<!-- fake progress -->
 				<control type="group">
 					<width>800</width>
@@ -115,10 +142,10 @@
 						<texture colordiffuse="cc515151" border="2">colors/color_white.png</texture>
 					</control>
 					<control type="image">
-						<width>1%</width>
+						<width>50%</width>
 						<height>100%</height>
 						<texture colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]" border="4">colors/color_white.png</texture>
-						<animation effect="zoom" end="5000,100" easing="in" tween="cubic" time="600" condition="!String.IsEmpty(Window(Home).Property(finishBingieStartup1))">Conditional</animation>
+						<animation effect="zoom" end="200,100" easing="in" tween="cubic" time="600" condition="!String.IsEmpty(Window(Home).Property(finishBingieStartup2))">Conditional</animation>
 					</control>
 				</control>
 			</control>

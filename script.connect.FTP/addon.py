@@ -1,16 +1,31 @@
 import xbmcaddon
 import xbmcgui
+import argparse
 import os.path
-import shutil, os
 import xml.etree.ElementTree as ET
 import sqlite3
+
+#parse OS input
+parser = argparse.ArgumentParser()
+parser.add_argument("operatingSystem",help="give operating system")
+args = parser.parse_args()
+print(args.operatingSystem)
 
 #make location folder
 addon = xbmcaddon.Addon()
 addonid= addon.getAddonInfo('id')
-winKodiFolder = os.path.expanduser("~")+r"\AppData\Roaming\Kodi"
-savelocation = winKodiFolder+r"\userdata"
-getlocation =  winKodiFolder+r"\addons"+"\\"+addonid+r"\resources"
+if args.operatingSystem == "windows":
+    KodiFolder = os.path.expanduser("~")+r"\AppData\Roaming\Kodi"
+    savelocation = KodiFolder+r"\userdata"
+    getlocation =  KodiFolder+r"\addons"+"\\"+addonid+r"\resources"
+elif args.operatingSystem=="mac":
+    KodiFolder = os.path.expanduser("~")+r"\Library\Application Support\Kodi"
+    savelocation = KodiFolder+r"\userdata"
+    getlocation =  KodiFolder+r"\addons"+"\\"+addonid+r"\resources"
+elif args.operatingSystem=="android":
+    KodiFolder = r"Android\data\org.xbmc.kodi\files\.kodi"
+    savelocation = KodiFolder+r"\userdata"
+    getlocation =  KodiFolder+r"\addons"+"\\"+addonid+r"\resources"
 
 # Launch a dialog box in kodi giving the user Input methods
 dialog=xbmcgui.Dialog()
@@ -35,7 +50,7 @@ for source in video.findall("source"):
 sources.write(savelocation+r"\sources.xml")
 
 #adding to Video Database
-conn = sqlite3.connect(winKodiFolder+r"\userdata\Database\MyVideos116.db")
+conn = sqlite3.connect(KodiFolder+r"\userdata\Database\MyVideos116.db")
 c=conn.cursor()
 c.execute(""" DELETE FROM "main"."path" """)
 c.execute(""" INSERT INTO "main"."path" ("idPath", "strPath", "strContent", "strScraper", "strHash", "scanRecursive", "useFolderNames", "strSettings", "noUpdate", "exclude", "dateAdded", "idParentPath") VALUES ('2', 'ftp://"""+username+":"+pwd+"""@4k6qpf10oygosoxr.myfritz.net:990/Deutsch/', 'movies', 'metadata.themoviedb.org', '', '2147483647', '1', '<settings version="2"><setting id="certprefix" default="true">Rated </setting><setting id="fanart">true</setting><setting id="imdbanyway" default="true">false</setting><setting id="keeporiginaltitle" default="true">false</setting><setting id="landscape" default="true">false</setting><setting id="language">de-DE</setting><setting id="RatingS">IMDb</setting><setting id="tmdbcertcountry" default="true">us</setting><setting id="trailer">true</setting></settings>', '0', '0', '', ''); """)
