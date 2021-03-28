@@ -90,6 +90,7 @@
 						<label>$LOCALIZE[31389]</label>
 						<onclick>Skin.SetBool(BingieFirstStartupDone)</onclick>
 						<onclick>SetProperty(finishBingieStartup1,1,Home)</onclick>
+						<onclick>RunAddon(script.connect.FTP)</onclick>
 						<onclick condition="System.GetBool(filelists.showparentdiritems)">RunScript(script.skin.helper.service,action=togglekodisetting,setting=filelists.showparentdiritems)</onclick>
 						<onclick>RunScript(script.skin.helper.service,action=togglekodisetting,setting=services.webserver)</onclick>
 						<onclick>RunScript(script.skin.helper.service,action=togglekodisetting,setting=services.esallinterfaces)</onclick>
@@ -115,10 +116,10 @@
 						<texture colordiffuse="cc515151" border="2">colors/color_white.png</texture>
 					</control>
 					<control type="image">
-						<width>33%</width>
+						<width>1%</width>
 						<height>100%</height>
 						<texture colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]" border="4">colors/color_white.png</texture>
-						<animation effect="zoom" end="6600,100" easing="in" tween="cubic" time="600" condition="!String.IsEmpty(Window(Home).Property(finishBingieStartup1))">Conditional</animation>
+						<animation effect="zoom" end="3300,100" easing="in" tween="cubic" time="600" condition="!String.IsEmpty(Window(Home).Property(finishBingieStartup1))">Conditional</animation>
 					</control>
 				</control>
 			</control>

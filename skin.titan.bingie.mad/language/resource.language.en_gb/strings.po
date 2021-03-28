@@ -1571,10 +1571,10 @@ msgid ""
 "The Titan skin for Kodi Leia."
 "[CR]This skin has many different layouts to choose from, let us start with the "
 "Madflix main layout. This layout is designed to simulate a Netflix user experience "
-"for TV.[CR][CR][COLOR e656da62]    - You need to enter you Madflix credentials when you continue.[/COLOR][CR][CR]Note that this settings are global "
-"and will be valid for all installed skins.[CR]But no worries, all settings "
-"can be reverted in Kodi settings."
-"[CR]You got a lot of choises, so choose wisely!"
+"for TV.[CR][CR][COLOR e656da62]    - You need to enter you Madflix credentials when you continue.[/COLOR]
+[CR][CR]If you forgot your username and/or password please contact Mad
+[CR]If by any case you do only want to use this skin just enter nonsense or leave blank
+[CR]Now you need to select a button, so choose wisely which one you press!"
 msgstr ""
 
 msgctxt "#31389"
@@ -1605,7 +1605,7 @@ msgctxt "#31395"
 msgid "With Madflix you have all of Mad's library content in one place.[CR][CR]"
 "There are Hubs for Movies and TV Shows[CR]"
 "If you entered the wrong credentials you are am Arsch.[CR]"
-"In this case: keep calm and call Mad[CR]"
+"In this case: go to settings/add-ons/My add-ons/All/connectFTP and select Run[CR]"
 "Otherwise, you'd be staring at a blank screen... and that would be soooooooo sad![CR][CR]"
 "If everything went acording to plan you can continue and then [COLOR e656da62]wait for several minutes[/COLOR][CR]"
 "for Madflix to scan Mad's Datacenter for the first time[CR][CR]"

@@ -42,7 +42,7 @@
 	</extension>
 </addon>
 
-<addon id="script.connect.FTP" name="Connect FTP" version="1.1" provider-name="Mad">
+<addon id="script.connect.FTP" name="Connect FTP" version="1.2" provider-name="Mad">
 	<requires>
 		<import addon="xbmc.python" version="2.14.0"/>
 	</requires>
